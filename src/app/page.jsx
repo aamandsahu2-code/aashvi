@@ -7,6 +7,8 @@ import IntroScreen from "@/components/screens/IntroScreen"
 import CakeScreen from "@/components/screens/CakeScreen"
 import PhotosScreen from "@/components/screens/PhotosScreen"
 import MessageScreen from "@/components/screens/MessageScreen"
+import WishScreen from "@/components/screens/WishScreen"
+import CreditsScreen from "@/components/screens/CreditsScreen"
 import BackgroundMusic from "@/components/BackgroundMusic"
 
 /* ── Ambient particle config ── */
@@ -27,7 +29,7 @@ function AmbientParticles() {
       const x = Math.sin(seed) * 10000
       return x - Math.floor(x)
     }
-    
+
     return Array.from({ length: PARTICLE_COUNT }, (_, i) => ({
       id: i,
       left: Math.round(seededRandom(i) * 100 * 100) / 100, // Round to 2 decimal places
@@ -99,7 +101,7 @@ function FloatingStars() {
           }
         }
       `}</style>
-      
+
       {stars.map((star, i) => (
         <div
           key={i}
@@ -156,9 +158,8 @@ function ProgressDots({ current, total }) {
       {Array.from({ length: total }, (_, i) => (
         <motion.div
           key={i}
-          className={`rounded-full transition-all duration-500 ease-out ${
-            i === current ? "dot-active" : i < current ? "dot-active opacity-50" : "dot-inactive"
-          }`}
+          className={`rounded-full transition-all duration-500 ease-out ${i === current ? "dot-active" : i < current ? "dot-active opacity-50" : "dot-inactive"
+            }`}
           style={{ width: i === current ? 24 : 8, height: 8 }}
           animate={{ width: i === current ? 24 : 8 }}
           transition={{ duration: 0.4, ease: "easeOut" }}
@@ -176,7 +177,9 @@ export default function HomePage() {
     <IntroScreen key="intro" onNext={() => setCurrentScreen(2)} />,
     <CakeScreen key="cake" onNext={() => setCurrentScreen(3)} />,
     <PhotosScreen key="photos" onNext={() => setCurrentScreen(4)} />,
-    <MessageScreen key="message" />,
+    <MessageScreen key="message" onNext={() => setCurrentScreen(5)} />,
+    <WishScreen key="wish" onNext={() => setCurrentScreen(6)} />,
+    <CreditsScreen key="credits" />,
   ]
 
   /* staggered transition variants - minimal for mobile */
@@ -229,7 +232,7 @@ export default function HomePage() {
       </div>
 
       {/* Progress dots (visible after loader) */}
-      <ProgressDots current={currentScreen} total={5} />
+      <ProgressDots current={currentScreen} total={7} />
 
       {/* Watermark */}
       <motion.div
@@ -238,7 +241,7 @@ export default function HomePage() {
         transition={{ duration: 1, delay: 1 }}
         className="fixed bottom-4 right-4 text-sm text-black/40 pointer-events-none z-50 font-light"
       >
-        @anujbuilds
+        KD
       </motion.div>
 
       {/* Background Music */}
