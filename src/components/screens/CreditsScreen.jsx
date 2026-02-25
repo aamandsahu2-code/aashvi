@@ -49,11 +49,27 @@ export default function CreditsScreen() {
                         <motion.div
                             initial={{ scale: 0.8, opacity: 0 }}
                             whileInView={{ scale: 1, opacity: 1 }}
-                            className="p-6 bg-white/50 backdrop-blur-sm rounded-3xl border border-pink-100 shadow-sm"
+                            className="p-8 bg-white/40 backdrop-blur-md rounded-3xl border border-white/50 shadow-sm max-w-md"
                         >
-                            <p className="text-[#594ba0] text-2xl font-bold leading-relaxed italic">
-                                "I'am Yours . Even if You're not mine"
-                            </p>
+                            <div className="space-y-2">
+                                {["I'm", "Yours...", "Even", "if", "You're", "not", "mine."].map((word, index) => (
+                                    <motion.span
+                                        key={index}
+                                        initial={{ opacity: 0, y: 20 }}
+                                        whileInView={{ opacity: 1, y: 0 }}
+                                        transition={{ delay: index * 0.3, duration: 0.6 }}
+                                        className={`inline-block mx-1 ${
+                                            word === "I'm" || word === "Yours..." 
+                                                ? "text-3xl font-bold bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 bg-clip-text text-transparent tracking-[0.15em] font-serif"
+                                                : word === "mine."
+                                                ? "text-3xl font-bold bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 bg-clip-text text-transparent tracking-[0.15em] font-serif"
+                                                : "text-2xl font-semibold bg-gradient-to-r from-purple-400 via-pink-400 to-purple-400 bg-clip-text text-transparent tracking-[0.1em] font-serif"
+                                        }`}
+                                    >
+                                        {word}
+                                    </motion.span>
+                                ))}
+                            </div>
                         </motion.div>
                     </div>
                 </motion.div>
