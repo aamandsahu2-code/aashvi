@@ -57,8 +57,8 @@ export default function CreditsScreen() {
                                     <motion.span
                                         key={index}
                                         initial={{ opacity: 0, y: 20 }}
-                                            animate={{ opacity: 1, y: 0 }}
-                                            transition={{ delay: 1.2 + index * 0.3, duration: 0.6 }}
+                                        whileInView={{ opacity: 1, y: 0 }}
+                                        transition={{ delay: 1.2 + index * 0.3, duration: 0.6 }}
                                         className={`inline-block mx-1 ${
                                             word === "I'm" || word === "Yours..." 
                                                 ? "text-3xl font-bold bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 bg-clip-text text-transparent tracking-[0.15em] font-serif"
