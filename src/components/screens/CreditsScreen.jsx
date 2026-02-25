@@ -1,6 +1,7 @@
 "use client"
 
 import { motion } from "framer-motion"
+import { RotateCcw } from "lucide-react"
 import Button from "../Button"
 
 const credits = [
@@ -63,14 +64,15 @@ export default function CreditsScreen() {
             <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 3 }}
+                transition={{ delay: 36 }}
                 className="absolute bottom-10 z-50 px-8 w-full"
             >
                 <Button
                     onClick={() => window.location.reload()}
-                    className="image-style-button w-full"
+                    className="image-style-button"
                 >
-                    <span>Replay Surprise</span> ✨
+                    <span>Replay Surprise</span>
+                    <RotateCcw size={20} />
                 </Button>
             </motion.div>
         </motion.div>
