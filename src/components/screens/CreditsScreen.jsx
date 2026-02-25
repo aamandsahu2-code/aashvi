@@ -5,7 +5,7 @@ import { RotateCcw } from "lucide-react"
 import Button from "../Button"
 
 const credits = [
-    { role: "The Birthday Queen", name: "ANSHIKA" },
+    { role: "The Birthday Princess", name: "ANSHIKA" },
     { role: "Graphic Artist", name: "KD" },
     { role: "Chief Happiness Officer", name: "You" },
     { role: "Music Curator", name: "KD" },
