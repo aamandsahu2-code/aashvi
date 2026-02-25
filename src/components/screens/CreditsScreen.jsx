@@ -18,37 +18,38 @@ export default function CreditsScreen() {
         <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            className="bg-[#fff8fc] p-7 rounded-[60px] shadow-2xl min-w-48 w-full max-w-110 relative flex flex-col items-center gap-6 my-10 card-glow overflow-hidden h-[500px] border border-pink-100"
+            className="image-style-card relative flex flex-col items-center gap-6 my-10 card-glow overflow-hidden h-[550px]"
         >
             {/* Background Orbs */}
-            <div className="absolute top-0 left-0 w-64 h-64 bg-pink-100/50 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2 pointer-events-none" />
-            <div className="absolute bottom-0 right-0 w-64 h-64 bg-purple-100/50 rounded-full blur-3xl translate-x-1/2 translate-y-1/2 pointer-events-none" />
+            <div className="absolute top-0 left-0 w-64 h-64 bg-pink-100/30 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2 pointer-events-none" />
+            <div className="absolute bottom-0 right-0 w-64 h-64 bg-purple-100/30 rounded-full blur-3xl translate-x-1/2 translate-y-1/2 pointer-events-none" />
 
             <div className="relative w-full h-full overflow-hidden flex flex-col items-center">
                 <motion.div
-                    animate={{ y: ["20%", "-155%"] }}
-                    transition={{ duration: 40, ease: "linear" }}
+                    animate={{ y: ["20%", "-165%"] }}
+                    transition={{ duration: 35, ease: "linear" }}
                     className="flex flex-col items-center gap-16 py-20 w-full"
                 >
                     {credits.map((item, i) => (
                         <div key={i} className="text-center group">
-                            <p className="text-pink-400 text-sm uppercase tracking-[0.2em] mb-2 font-medium">
+                            <p className="text-pink-400 text-xs uppercase tracking-[0.2em] mb-2 font-semibold">
                                 {item.role}
                             </p>
-                            <h3 className="text-[#594ba0] text-3xl font-bold tracking-tight">
+                            <h3 className={`text-foreground text-3xl font-bold tracking-tight ${item.role === "The Birthday Queen" ? "princess-text text-secondary text-4xl" : ""}`}>
                                 {item.name}
                             </h3>
                         </div>
                     ))}
 
-                    <div className="py-20 flex flex-col items-center text-center">
+                    <div className="py-20 flex flex-col items-center text-center px-4">
                         <h2 className="text-5xl font-extrabold shimmer-text leading-tight mb-8">
                             THE END
                         </h2>
 
                         <motion.div
-                            initial={{ scale: 0.8, opacity: 0 }}
-                            whileInView={{ scale: 1, opacity: 1 }}
+                            initial={{ y: -100, opacity: 0 }}
+                            whileInView={{ y: 0, opacity: 1 }}
+                            transition={{ duration: 0.8, ease: "easeOut" }}
                             className="p-8 bg-white/40 backdrop-blur-md rounded-3xl border border-white/50 shadow-sm max-w-md"
                         >
                             <div className="space-y-2">
@@ -56,8 +57,8 @@ export default function CreditsScreen() {
                                     <motion.span
                                         key={index}
                                         initial={{ opacity: 0, y: 20 }}
-                                        whileInView={{ opacity: 1, y: 0 }}
-                                        transition={{ delay: index * 0.3, duration: 0.6 }}
+                                            animate={{ opacity: 1, y: 0 }}
+                                            transition={{ delay: 1.2 + index * 0.3, duration: 0.6 }}
                                         className={`inline-block mx-1 ${
                                             word === "I'm" || word === "Yours..." 
                                                 ? "text-3xl font-bold bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 bg-clip-text text-transparent tracking-[0.15em] font-serif"
@@ -76,24 +77,18 @@ export default function CreditsScreen() {
             </div>
 
             <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 2 }}
-                className="absolute bottom-10 z-50 px-8 w-full max-w-xs"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 3 }}
+                className="absolute bottom-10 z-50 px-8 w-full"
             >
                 <Button
                     onClick={() => window.location.reload()}
-                    className="bg-white/80 hover:bg-white text-pink-600 border border-pink-100 backdrop-blur-md w-full shadow-md"
+                    className="image-style-button w-full"
                 >
-                    Replay Surprise ✨
+                    <span>Replay Surprise</span> ✨
                 </Button>
             </motion.div>
-
-            <style jsx>{`
-        .card-glow {
-          box-shadow: 0 0 40px rgba(255, 182, 193, 0.2), inset 0 0 20px rgba(255, 255, 255, 0.5);
-        }
-      `}</style>
         </motion.div>
     )
 }
