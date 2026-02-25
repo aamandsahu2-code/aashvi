@@ -47,30 +47,14 @@ export default function CreditsScreen() {
                         </h2>
 
                         <motion.div
-                            initial={{ y: -100, opacity: 0 }}
-                            whileInView={{ y: 0, opacity: 1 }}
-                            transition={{ duration: 0.8, ease: "easeOut" }}
-                            className="p-8 bg-white/40 backdrop-blur-md rounded-3xl border border-white/50 shadow-sm max-w-md"
+                            initial={{ scale: 0.9, opacity: 0 }}
+                            whileInView={{ scale: 1, opacity: 1 }}
+                            className="p-6 bg-white/40 backdrop-blur-md rounded-3xl border border-white/50 shadow-sm"
                         >
-                            <div className="space-y-2">
-                                {["I'm", "Yours...", "Even", "if", "You're", "not", "mine."].map((word, index) => (
-                                    <motion.span
-                                        key={index}
-                                        initial={{ opacity: 0, y: 20 }}
-                                        whileInView={{ opacity: 1, y: 0 }}
-                                        transition={{ delay: 1.2 + index * 0.3, duration: 0.6 }}
-                                        className={`inline-block mx-1 ${
-                                            word === "I'm" || word === "Yours..." 
-                                                ? "text-3xl font-bold bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 bg-clip-text text-transparent tracking-[0.15em] font-serif"
-                                                : word === "mine."
-                                                ? "text-3xl font-bold bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 bg-clip-text text-transparent tracking-[0.15em] font-serif"
-                                                : "text-2xl font-semibold bg-gradient-to-r from-purple-400 via-pink-400 to-purple-400 bg-clip-text text-transparent tracking-[0.1em] font-serif"
-                                        }`}
-                                    >
-                                        {word}
-                                    </motion.span>
-                                ))}
-                            </div>
+                            <p className="text-foreground text-xl font-bold leading-relaxed italic">
+                                "I'm Yours... <br />
+                                Even if You're not mine."
+                            </p>
                         </motion.div>
                     </div>
                 </motion.div>
