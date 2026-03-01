@@ -5,13 +5,14 @@ import { useEffect, useState, useMemo, useRef } from "react"
 
 // ─── DATA ─────────────────────────────────────────────────────
 const credits = [
-  { role: "The Birthday Princess 👑", name: "ANSHIKA", highlight: true },
-  { role: "Graphic Artist 🎨",         name: "KD" },
-  { role: "Chief Happiness Officer ✨", name: "You" },
-  { role: "Music Curator 🎵",           name: "KD" },
-  { role: "Special Thanks 💖",          name: "To everyone who loves you" },
-  { role: "Location 🌸",                name: "Right in your heart" },
-  { role: "Dedicated to 🎀",            name: "Making you smile today" },
+  { role: "The Birthday Princess 👑",       name: "ANSHIKA", highlight: true },
+  { role: "Graphic Artist 🎨",              name: "KD" },
+  { role: "Chief Happiness Officer ✨",     name: "You" },
+  { role: "Music Curator 🎵",               name: "KD" },
+  { role: "Special Thanks 💖",              name: "To everyone who loves you" },
+  { role: "Location 🌸",                    name: "Right in your heart" },
+  { role: "Dedicated to 🎀",                name: "Making you smile today" },
+  { role: "Final Sparkle ✨",               name: "Happy Birthday, Anshika – keep shining forever" }
 ]
 
 const POEM_LINES = [
@@ -499,7 +500,7 @@ export default function CreditsScreen() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0, transition: { duration: 1, ease: "easeInOut" } }}
-            transition={{ duration: 0.5 }}
+            transition={{ duration: 0.2 }}
             className="relative z-10 bg-[#fff8fc] p-4 sm:p-7 rounded-[40px] sm:rounded-[60px] drop-shadow-2xl min-w-48 w-full max-w-100 sm:max-w-110 flex flex-col items-center gap-4 card-glow overflow-hidden"
             style={{ minHeight: "500px" }}
           >
@@ -515,7 +516,7 @@ export default function CreditsScreen() {
             <motion.div
               className="absolute left-0 right-0 flex flex-col items-center"
               style={{ top: 0 }}
-              initial={{ y: "60vh" }}
+              initial={{ y: "40vh" }}
               animate={{ y: `-110%` }}
               transition={{
                 duration: SCROLL_DURATION,
