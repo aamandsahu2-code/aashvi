@@ -37,7 +37,7 @@ export default function PhotosScreen({ onNext }) {
       variants={containerVariants}
       initial="hidden"
       animate="visible"
-      className="bg-[#fff8fc] p-7 rounded-[60px] drop-shadow-2xl min-w-48 w-full max-w-110 relative flex flex-col items-center gap-4 my-10 card-glow overflow-hidden"
+      className="bg-[#fff8fc] p-7 rounded-[60px] drop-shadow-2xl w-full max-w-96 relative flex flex-col items-center gap-4 my-10 card-glow overflow-hidden"
     >
       {/* Floating decorations */}
       {[
@@ -110,7 +110,7 @@ export default function PhotosScreen({ onNext }) {
                       loading="lazy"
                       src={src}
                       alt={`Memory ${i + 1}`}
-                      className="h-full w-full rounded-2xl object-contain"
+                      className="h-full w-full rounded-2xl object-cover"
                     />
                     {/* Subtle vignette overlay */}
                     <div
