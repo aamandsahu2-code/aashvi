@@ -469,9 +469,9 @@ export default function CreditsScreen() {
   const [stage, setStage] = useState(0)
   const windowHeight = useWindowHeight()
 
-  // Credits scroll duration: credits take ~8s to scroll off screen
+  // Credits scroll duration: credits take ~12s to scroll off screen
   // After scroll done → quote
-  const SCROLL_DURATION = 8 // seconds — must match animation below
+  const SCROLL_DURATION = 12 // seconds — must match animation below
 
   useEffect(() => {
     if (stage === 0) {
@@ -500,7 +500,7 @@ export default function CreditsScreen() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0, transition: { duration: 1, ease: "easeInOut" } }}
-            transition={{ duration: 0.2 }}
+            transition={{ duration: 0.1 }}
             className="relative z-10 bg-[#fff8fc] p-4 sm:p-7 rounded-[40px] sm:rounded-[60px] drop-shadow-2xl min-w-48 w-full max-w-100 sm:max-w-110 flex flex-col items-center gap-4 card-glow overflow-hidden"
             style={{ minHeight: "500px" }}
           >
