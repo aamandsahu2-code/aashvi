@@ -260,7 +260,7 @@ function QuoteScreen({ onDone }) {
     "Even if You're not mine."
   ]
   
-  const { displayed, done } = useTypewriter(QUOTE_LINES, 80, 800, 400)
+  const { displayed, done } = useTypewriter(QUOTE_LINES, 100, 600, 200)
 
   useEffect(() => {
     if (done) {
@@ -303,7 +303,7 @@ function QuoteScreen({ onDone }) {
           <motion.p key={i} 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: i * 0.3, duration: 1.2 }}
+            transition={{ duration: 1.2 }}
             style={{
               fontSize: i === 0 
                 ? "clamp(1.5rem,7vw,2.2rem)"
@@ -468,9 +468,9 @@ export default function CreditsScreen() {
   const [stage, setStage] = useState(0)
   const windowHeight = useWindowHeight()
 
-  // Credits scroll duration: credits take ~14s to scroll off screen
+  // Credits scroll duration: credits take ~8s to scroll off screen
   // After scroll done → quote
-  const SCROLL_DURATION = 14 // seconds — must match animation below
+  const SCROLL_DURATION = 8 // seconds — must match animation below
 
   useEffect(() => {
     if (stage === 0) {
@@ -515,7 +515,7 @@ export default function CreditsScreen() {
             <motion.div
               className="absolute left-0 right-0 flex flex-col items-center"
               style={{ top: 0 }}
-              initial={{ y: "100vh" }}
+              initial={{ y: "60vh" }}
               animate={{ y: `-110%` }}
               transition={{
                 duration: SCROLL_DURATION,
